@@ -23,10 +23,14 @@ contract Tokenization {
         return tokenCounter;
     }
 
-    function getTokenData(uint256 tokenId) public view returns (TokenData memory) {
-        require(tokenId > 0 && tokenId <= tokenCounter, "Invalid token ID");
-        return tokenList[tokenId];
-    }
+    function getTokenData(uint256 tokenId) public view returns (string memory) {
+    require(tokenId > 0 && tokenId <= tokenCounter, "Invalid token ID");
+    return string(tokenList[tokenId].originalDataHash);
+}
+
+    function getLastTokenId() public view returns (uint256) {
+    return tokenCounter;
+}
 
     function getUserTokens(address user) public view returns (uint256[] memory) {
         return userTokens[user];
