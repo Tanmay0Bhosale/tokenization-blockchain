@@ -10,6 +10,7 @@ contract Tokenization {
     }
 
     mapping(uint256 => TokenData) private tokenList;
+    mapping(address => uint256[]) private userTokens; // Track token IDs per user
     uint256 private tokenCounter;
 
     event TokenCreated(uint256 tokenId, string originalDataHash, address createdBy, uint256 timestamp);
@@ -17,6 +18,7 @@ contract Tokenization {
     function tokenizeData(string memory originalDataHash) public returns (uint256) {
         tokenCounter++;
         tokenList[tokenCounter] = TokenData(tokenCounter, originalDataHash, block.timestamp, msg.sender);
+        userTokens[msg.sender].push(tokenCounter); // Store token ID for the user
         emit TokenCreated(tokenCounter, originalDataHash, msg.sender, block.timestamp);
         return tokenCounter;
     }
@@ -24,5 +26,9 @@ contract Tokenization {
     function getTokenData(uint256 tokenId) public view returns (TokenData memory) {
         require(tokenId > 0 && tokenId <= tokenCounter, "Invalid token ID");
         return tokenList[tokenId];
+    }
+
+    function getUserTokens(address user) public view returns (uint256[] memory) {
+        return userTokens[user];
     }
 }
