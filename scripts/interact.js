@@ -3,7 +3,7 @@ async function main() {
     console.log("Interacting with contract using account:", deployer.address);
 
     // Address of the deployed contract (replace with actual address)
-    const tokenizationAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
+    const tokenizationAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
     const Tokenization = await hre.ethers.getContractFactory("Tokenization");
     const tokenization = await Tokenization.attach(tokenizationAddress);
 

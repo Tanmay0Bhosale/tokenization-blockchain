@@ -4,9 +4,9 @@ require("@nomicfoundation/hardhat-toolbox");
 module.exports = {
   solidity: "0.8.28",
   networks: {
-    sepolia: {
-      url: `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,  // Sepolia Infura URL
-      accounts: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"],  // Private Key from .env
-    },
+    ganache: {
+      url: "http://127.0.0.1:7545", // Ganache's RPC URL
+      accounts: ["0xdf75fe817e7c71bec033e65bc37e340665366b90267137fc7bacbd7ccb28ff17"] // Your wallet private key 0xdalnahai
+    }
   },
 };

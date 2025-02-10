@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-    const contractAddress = "0x0165878A594ca255338adfa4d48449f69242Eb8F"; // Replace with actual deployed address
+    const contractAddress = "0xd540FfF71a0D76B460a3c54a63DEcBc7AF233BB6"; // Replace with actual deployed address
     const tokenId = 1; // Replace with the correct token ID
 
     const Tokenization = await ethers.getContractAt("Tokenization", contractAddress);

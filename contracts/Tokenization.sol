@@ -11,7 +11,7 @@ contract Tokenization {
 
     mapping(uint256 => TokenData) private tokenList;
     mapping(address => uint256[]) private userTokens; // Track token IDs per user
-    uint256 private tokenCounter;
+    uint256 public tokenCounter;
 
     event TokenCreated(uint256 tokenId, string originalDataHash, address createdBy, uint256 timestamp);
 
